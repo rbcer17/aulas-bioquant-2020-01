@@ -4,6 +4,7 @@
 #O R tem um conjunto de dados exemplo chamado trees
 #Vamos visualizar:
 View(trees)
+#Mais um comentário
 #Agora vamos buscar os dados sumarizados
 summary(trees)
 #Exercicio para os alunos:
