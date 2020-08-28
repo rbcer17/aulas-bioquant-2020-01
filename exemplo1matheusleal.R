@@ -9,8 +9,21 @@ View(trees)
 summary(trees)
 #Exercicio para os alunos:
 #use o comando plot do R para visualizar os dados deste conjunto de dados
+plot(trees)
 #use os comandos de media e variancia para obter a media e variancia da
 #altura, volume e diametro das 30 arvores
+mean(trees$Girth)
+#13.24839
+mean(trees$Height)
+#76
+mean(trees$Volume)
+#30.17097
+var(trees$Girth)
+#9.847914
+var(trees$Height)
+#40.6
+var(trees$Volume)
+#270.2028
 #grave o script com um novo nome e extensao .R
 #sincronize com o seu repositorio no github e faca um pull request para 
 #o repositorio mestre
