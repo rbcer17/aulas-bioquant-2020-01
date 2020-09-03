@@ -4,7 +4,6 @@
 #O R tem um conjunto de dados exemplo chamado trees
 #Vamos visualizar:
 View(trees)
-#Mais um comentário
 #Agora vamos buscar os dados sumarizados
 summary(trees)
 #Exercicio para os alunos:
@@ -15,7 +14,3 @@ summary(trees)
 #sincronize com o seu repositorio no github e faca um pull request para 
 #o repositorio mestre
 #edite o documento do teams fazendo o seu passo a passo
-plot(trees) #Visualizar os dados do conjunto
-apply(trees,2,mean) #Calcula a média do conjunto 1 para linhas 2 para colunas
-apply(trees,2,var)  #Calcula a variância do conjunto 1 para linhas 2 para colunas
-

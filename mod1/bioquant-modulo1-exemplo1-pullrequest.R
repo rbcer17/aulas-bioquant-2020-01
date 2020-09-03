@@ -4,18 +4,19 @@
 #O R tem um conjunto de dados exemplo chamado trees
 #Vamos visualizar:
 View(trees)
-#Mais um comentário
 #Agora vamos buscar os dados sumarizados
 summary(trees)
 #Exercicio para os alunos:
 #use o comando plot do R para visualizar os dados deste conjunto de dados
-#use os comandos de media e variancia para obter a media e variancia da
-#altura, volume e diametro das 30 arvores
+plot(trees)
+
+#use os comandos de media e variancia para obter a media e variancia da altura,volume e diametro das 30 arvores
+
+apply(trees,2,mean) 
+apply(trees,2,var)
+#função apply(nome do dataset,linha ou coluna, função2)= aplica a função2 em todas as linhas(1) ou colunas(2)
+
 #grave o script com um novo nome e extensao .R
 #sincronize com o seu repositorio no github e faca um pull request para 
 #o repositorio mestre
 #edite o documento do teams fazendo o seu passo a passo
-plot(trees) #Visualizar os dados do conjunto
-apply(trees,2,mean) #Calcula a média do conjunto 1 para linhas 2 para colunas
-apply(trees,2,var)  #Calcula a variância do conjunto 1 para linhas 2 para colunas
-
