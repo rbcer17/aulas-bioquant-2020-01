@@ -6,7 +6,7 @@
 dados= c(1.6,3.4,2.3,4.1,4.2,6.6,1.7,4.3)
 shapiro.test(dados)
 t.test(dados,mu= 2.2)
-#Resposta: o valor de p foi maior que 0,05, portanto não houveram diferenças significativas nas medias das amostras
+#Resposta: o valor de p foi maior que 0,05, portanto n?o houveram diferen?as significativas nas medias das amostras
 
 ###Exercicio 2
 #Em um estudo, as seguintes aves de dois locais tiveram suas asas medidas  para verificar se sao da
@@ -18,8 +18,8 @@ local2=c(13.3,21.6,27.2,21.7,26.7,33.0,10.9,29.6,9.3,24.3)
 shapiro.test(local1)
 shapiro.test(local2)
 t.test(local1,local2)
-#Resposta: Os dados do local 1 e 2 são normais, pois o teste de Shapiro-Wilk resultou em um p > 0.05.
-#Portanto pode ser realizado o teste t, no qual o p < 0,02, portano há diferenças significativas entre as populações dois dois locais.
+#Resposta: Os dados do local 1 e 2 s?o normais, pois o teste de Shapiro-Wilk resultou em um p > 0.05.
+#Portanto pode ser realizado o teste t, no qual o p < 0,02, portano h? diferen?as significativas entre as popula??es dois dois locais.
 
 
 
@@ -34,6 +34,6 @@ depois=c(6310,6295,4497,5182,4273,6591,6425,4600,5407,5509,4900,5100,4900)
 shapiro.test(antes)
 shapiro.test(depois)
 t.test(antes, depois, paired= TRUE)
-#Resposta: Os dados antes e depois são normais, pois o teste de Shapiro-Wilk resultou em um p > 0.05.
+#Resposta: Os dados antes e depois s?o normais, pois o teste de Shapiro-Wilk resultou em um p > 0.05.
 #Com isso foi realizado um teste t pariado (para analisar o mesmo conjunto de dados antes e depois de uma variavel).
-#o p foi maior que 0,05, portanto não há diferença significativa entre o peso dos frangos antes e depois da nova alimentação.
+#o p foi maior que 0,05, portanto n?o h? diferen?a significativa entre o peso dos frangos antes e depois da nova alimenta??o.
