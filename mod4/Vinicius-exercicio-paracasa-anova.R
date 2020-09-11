@@ -82,4 +82,4 @@ levene.test(exercicio_anova_2$Plasma, group =,exercicio_anova_2$Tratamento)
 resultado2 = aov(Plasma~ Tratamento+Sexo+Tratamento:Sexo, data = exercicio_anova_2)
 summary(resultado2)
 #Isso confirma a hipotese de que o nível do plasma varia de acordo com a presença do hormonio.
-#porem tanto o plasma quanto a presença do hormonio variaram de acordo com o sexo (alfa > 0.05).
+#porem tanto o plasma quanto a presença do hormonio não variaram de acordo com o sexo (alfa > 0.05).
