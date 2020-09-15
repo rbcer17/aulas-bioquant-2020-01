@@ -58,6 +58,7 @@ summary(resultado1)
 
 # OBS 2: Na coluna "tratamentos", o numero 1 significa  "presenca do hormonio" e o numero 2"ausencia do hormonio";
 # Na coluna "sexo", o numero 1 significa "macho" e o numero 2 "femea".
+
 library(readxl)
 exercicio_anova_2=read_xlsx("C:\\Users\\vinit\\Documents\\R\\Bioquant\\bioquant-mod1\\mod4\\exercicio-anova-2.xlsx")
 exercicio_anova_2$Plasma = as.numeric(exercicio_anova_2$Plasma)
@@ -81,5 +82,6 @@ levene.test(exercicio_anova_2$Plasma, group =,exercicio_anova_2$Tratamento)
 #Twoway anova: só foi encontrado diferença significativa (alfa <0.001) entre o nível do plasma e a presença do hormonio.
 resultado2 = aov(Plasma~ Tratamento+Sexo+Tratamento:Sexo, data = exercicio_anova_2)
 summary(resultado2)
+
 #Isso confirma a hipotese de que o nível do plasma varia de acordo com a presença do hormonio.
 #porem tanto o plasma quanto a presença do hormonio não variaram de acordo com o sexo (alfa > 0.05).
