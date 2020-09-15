@@ -1,4 +1,3 @@
-#matheusleal
 #Primeiro exercicio de Biologia Quantitativa
 #O simbolo jogo da velha e usado para indicar linha de comentario
 #se houver o simbolo jogo da velha a linha e ignorada pelo R
@@ -10,20 +9,13 @@ summary(trees)
 #Exercicio para os alunos:
 #use o comando plot do R para visualizar os dados deste conjunto de dados
 plot(trees)
-#use os comandos de media e variancia para obter a media e variancia da
-#altura, volume e diametro das 30 arvores
-mean(trees$Girth)
-#13.24839
-mean(trees$Height)
-#76
-mean(trees$Volume)
-#30.17097
-var(trees$Girth)
-#9.847914
-var(trees$Height)
-#40.6
-var(trees$Volume)
-#270.2028
+
+#use os comandos de media e variancia para obter a media e variancia da altura,volume e diametro das 30 arvores
+
+apply(trees,2,mean) 
+apply(trees,2,var)
+#função apply(nome do dataset,linha ou coluna, função2)= aplica a função2 em todas as linhas(1) ou colunas(2)
+
 #grave o script com um novo nome e extensao .R
 #sincronize com o seu repositorio no github e faca um pull request para 
 #o repositorio mestre
