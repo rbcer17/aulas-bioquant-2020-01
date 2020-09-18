@@ -1,5 +1,5 @@
 ### Exercicio para casa: Analise de Variancia
-
+#Esta muito bom
 
 ## EXERCICIO 1
 
@@ -29,13 +29,13 @@ shapiro.test(est3)
 #estrato 4: normal.
 est4 = exercicio_anova_1$dados[601:800]
 shapiro.test(est4)
-#os Dados são homocedasticos.
+#os Dados s?o homocedasticos.
 library(lawstat)
 levene.test(exercicio_anova_1$dados, group = exercicio_anova_1$estratos)
-#Anova: Após realizar um teste anova, houve diferença significativa entre os estratos (alfa < 0.001).
+#Anova: Ap?s realizar um teste anova, houve diferen?a significativa entre os estratos (alfa < 0.001).
 resultado1 = aov(dados~estratos, data=exercicio_anova_1)
 summary(resultado1)
-#Ou seja, está correta a hipotese de que os estratos são diferentes com relação ao volume vegetal coletado.
+#Ou seja, est? correta a hipotese de que os estratos s?o diferentes com rela??o ao volume vegetal coletado.
 
 
 
@@ -64,13 +64,13 @@ exercicio_anova_2=read_xlsx("C:\\Users\\vinit\\Documents\\R\\Bioquant\\bioquant-
 exercicio_anova_2$Plasma = as.numeric(exercicio_anova_2$Plasma)
 exercicio_anova_2$Tratamento = as.character(exercicio_anova_2$Tratamento)
 View(exercicio_anova_2)
-#Normalidade do tratamento: os dados são normais para ambos os tratamentos
+#Normalidade do tratamento: os dados s?o normais para ambos os tratamentos
 trat1=c(exercicio_anova_2$Plasma [1:10])
 trat2 = c(exercicio_anova_2$Plasma [11:20])
 shapiro.test(trat1)
 shapiro.test(trat2)
 
-#Normalidade do sexo: os dados são normais para ambos os sexos.
+#Normalidade do sexo: os dados s?o normais para ambos os sexos.
 shapiro.test(exercicio_anova_2[exercicio_anova_2$Sexo =="1",]$Plasma)
 shapiro.test(exercicio_anova_2[exercicio_anova_2$Sexo =="2",]$Plasma)
 
@@ -79,9 +79,9 @@ library(lawstat)
 levene.test(exercicio_anova_2$Plasma, group = exercicio_anova_2$Sexo)
 levene.test(exercicio_anova_2$Plasma, group =,exercicio_anova_2$Tratamento)
 
-#Twoway anova: só foi encontrado diferença significativa (alfa <0.001) entre o nível do plasma e a presença do hormonio.
+#Twoway anova: s? foi encontrado diferen?a significativa (alfa <0.001) entre o n?vel do plasma e a presen?a do hormonio.
 resultado2 = aov(Plasma~ Tratamento+Sexo+Tratamento:Sexo, data = exercicio_anova_2)
 summary(resultado2)
 
-#Isso confirma a hipotese de que o nível do plasma varia de acordo com a presença do hormonio.
-#porem tanto o plasma quanto a presença do hormonio não variaram de acordo com o sexo (alfa > 0.05).
+#Isso confirma a hipotese de que o n?vel do plasma varia de acordo com a presen?a do hormonio.
+#porem tanto o plasma quanto a presen?a do hormonio n?o variaram de acordo com o sexo (alfa > 0.05).
