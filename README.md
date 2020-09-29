@@ -1,2 +1,2 @@
 # bioquant-mod1
-Repositorio para o modulo 1 de Biologia Quantitativa
+Repositorio para todos os modulos de Biologia Quantitativa no semestre 2020/01
