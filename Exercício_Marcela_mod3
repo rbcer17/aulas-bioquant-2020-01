@@ -1,0 +1,77 @@
+###Exercicio 1
+#Um ALUNO DE PIBIC DA UnB TEM QUE VERIFICAR SE SUA POPULACAO DE AVES 
+#PERTENCE A UMA POPULACAO CUJA MEDIA DE TAMANHO DAS ASAS   E 2.2
+
+dados= c(1.6,3.4,2.3,4.1,4.2,6.6,1.7,4.3)
+mean(dados)
+# media de tamanho das asas (3.525) ≠ (2.2)
+
+
+
+###Exercicio 2
+#Em um estudo, as seguintes aves de dois locais tiveram suas asas medidas  para verificar se sao da
+#mesma populacao
+#Veja se hÃ uma diferenÃ¾a significativa entre as populacoes dos dois locais usando  a analiise correta
+#lembrando de  verificar os pre requisitos necessarios para tal analise
+
+local1=c(16.3,21.2,15.0,10.8,13.9,23.5, 11.0,6.4,2.8,12.0)
+local2=c(13.3,21.6,27.2,21.7,26.7,33.0,10.9,29.6,9.3,24.3)
+
+#Shapiro-Wilk normality test
+
+shapiro.test(local1)
+#p-value = 0.9503 > 0.05, dados dentro da normalidade
+
+shapiro.test(local2)
+#p-value = 0.428 > 0.05, dados dentro da normalidade
+
+#teste-t
+
+t.test(local1, local2)
+# p-value = 0.01811 < 0.05,hipotese nula rejeitada.
+#Ha diferença significativa, as amostras pertencem a grupos estatisticos diferentes.
+
+
+
+###Exercicio 3
+#Uma pesquisadora quer verificar se determinada racao tem efeito sobre o peso de frangos.
+
+#H0= nao ha diferença no peso 
+#H1= ha diferença no peso
+
+#Com isso ele gerou dois bancos de dados: um antes da utilizacao da racao e outro depois.
+#Verifique se de fato a racao tem efeito significativo sobre essa populacao aplicando
+#o teste  correto,lembrando de  verificar os pre requisitos necessarios para tal analise. Cada individuo estÃ¡ pareado na sequencia antes e depois, ou seja o primeiro peso de cada sequencia corresponde ao individuo 1, o segundo ao individuo 2, e assim por diante.
+
+
+antes= c(5166,6080,7290,7031,6700,8908,4214,5135,5002,4900,8043,6205,8800)
+summary(antes)
+#meadia = 6421
+depois= c(6310,6295,4497,5182,4273,6591,6425,4600,5407,5509,4900,5100,4900)
+summary(depois)
+#media = 5384
+
+antesdepois <- data.frame (grupo = rep(c("antes", "depois"), each = 13), peso = c(antes, depois))
+antesdepois
+
+summary(antesdepois)
+#mean = 5902 
+
+
+#Shapiro-Wilk normality test
+
+shapiro.test(antes)
+# p-value = 0.4427 > 0.05, dados dentro da normalidade
+
+shapiro.test(depois)
+# p-value = 0.2286 > 0.05, dados dentro da normalidade
+
+
+#Paired t-test
+
+t.test(antes, depois, paired=TRUE)
+#p-value = 0.06837 > 0.05, hipótese nula aceita
+# nao ha diferença significativa entre o antes e o depois
+# nao podemos pra considerar como duas populaçoes estatisticas distintas
+
+
