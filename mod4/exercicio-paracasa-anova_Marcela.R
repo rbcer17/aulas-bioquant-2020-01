@@ -1,7 +1,6 @@
 ### Exercicio para casa: Analise de Variancia
 
-
-## EXERCICIO 1
+################################ EXERCICIO 1################################
 
 
 # Voce e um consultor ambiental e foi contratado para um determinado empreendimento.
@@ -55,26 +54,36 @@ summary(resultado_anova)
 
 
 #Box plot#
-install.packages("ggpubr")
-library("ggpubr")
+install.packages("ggplot2")
+library("ggplot2")
 
 exercicio_anova_1$estratos <- ordered(exercicio_anova_1$estratos,
                          levels = c("Estrato 1", "Estrato 2", "Estrato 3", "Estrato 4"))
-# N sei pq n deu certo :(
-ggboxplot(exercicio_anova_1, x = "estratos", y = "dados", 
-          color = "estratos", palette = c("#00AFBB", "#E7B800", "#FC4E07", "#9900CC"),
+
+data.frame(exercicio_anova_1$estratos) 
+
+
+# n funcionou
+ggplot(exercicio_anova_1$estratos, x = "estratos", y = "dados", 
+          color = "estratos", palette = c("#999999","#00AFBB", "#E7B800", "#FC4E07"),
           order = c("Estrato 1", "Estrato 2", "Estrato 3", "Estrato 4"),
           ylab = "dados", xlab = "estratos")
 
+# n funcionou
+ggplot(exercicio_anova_1$estratos, aes(x=dose, y=len, color=estratos)) + 
+       scale_color_brewer(palette="Dark2") +
+       order = c("Estrato 1", "Estrato 2", "Estrato 3", "Estrato 4")
+
+  
 
 #Tukey multiple pairwise-comparisons#
 TUKEY <-TukeyHSD(resultado_anova)
-#S? a diferen?a (Estrato 2-Estrato 1) n?o ? significativa, com valor de p ajustado de 0.7383912
+TUKEY
+#Apenas a diferença (Estrato 2-Estrato 1) nao e significativa, com valor de p ajustado de 0.7383912
 
-# esse ficou feio
-plot(TUKEY , las=1 , col="brown")
 
-## EXERCICIO 2
+
+################################EXERCICIO 2################################
 
 
 # Em um laboratorio foi realizada a coleta de plasma sanguineo de 20 pequenos roedores, 
@@ -93,6 +102,7 @@ plot(TUKEY , las=1 , col="brown")
 
 
 # A planilha com os dados REFERENTES A ESSA QUESTAO e o exercicio-anova-2.xlsx
+library(readxl)
 exercicio_anova_2 <- read_excel("C:/Users/User/Downloads/Biologia Quantitativa/exercicio-anova-2.xlsx")
 View(exercicio_anova_2)
 
@@ -101,7 +111,11 @@ exercicio_anova_2$Tratamento = as.character(exercicio_anova_2$Tratamento)
 
 #PREMISSAS#
 
-# Shapiro Wilk - Distribuicao normal 
+# Shapiro Wilk - Distribuicao normal (tratamento)
+
+shapiro.test(exercicio_anova_2$Plasma) 
+# p-value = 0.06956 > 0.05 = dados dentro da normalidade
+
 tratamento_1=c(exercicio_anova_2$Plasma [1:10])
 shapiro.test(tratamento_1)
 # p-value = 0.7438  > 0.05 = dados dentro da normalidade
@@ -110,5 +124,48 @@ tratamento_2 = c(exercicio_anova_2$Plasma [11:20])
 shapiro.test(tratamento_2)
 #p-value = 0.5864  > 0.05 = dados dentro da normalidade
 
+# Shapiro Wilk - Distribuicao normal (sexo)
+shapiro.test(exercicio_anova_2[exercicio_anova_2$Sexo =="1",]$Plasma)
+#p-value = 0.06643 > 0.05 = dados dentro da normalidade
+
+shapiro.test(exercicio_anova_2[exercicio_anova_2$Sexo =="2",]$Plasma)
+# p-value = 0.09318 > 0.05 = dados dentro da normalidade
 
 
+# Teste de Levene - Homocedasticidade 
+library(lawstat)
+
+levene.test(exercicio_anova_2$Plasma, group =,exercicio_anova_2$Tratamento)
+#p-value = 0.02734 < 0.05 = regeita-se H0, variância entre os tratamentos é diferente
+
+levene.test(exercicio_anova_2$Plasma, group =,exercicio_anova_2$Sexo)
+#p-value = 0.6856 > 0.05 = aceita-se H0, variância entre os sexos é igual
+
+#BOXPLOT#
+library(ggplot2)
+boxplot(Plasma ~ Tratamento:Sexo,
+        data = exercicio_anova_2,
+        xlab = "tratamento x Sexo",
+        ylab = "Plasma")
+
+
+#ANOVA#
+Modelo_2= lm(Plasma ~ Tratamento + Sexo + Tratamento:Sexo,
+           data= exercicio_anova_2)
+anova(Modelo_2) 
+#7.943e-07 < 0.05 = Tratamento possui diferença significativa
+
+summary(Modelo_2) 
+
+#HISTOGRAMA#
+hist(residuals(Modelo_2),
+     col="darkgray")
+#distribuição dos residuos possui tendencia central, parece normal
+
+#RESPOSTAS#
+
+#A presença do hormonio afeta o nivel de plasma sanguineo? SIM
+
+#Ha diferenca entre esse nivel para machos e femeas? NAO
+
+#Existe diferenca entre machos e femeas na presenca de hormonio e/ou na ausencia dele? NAO
