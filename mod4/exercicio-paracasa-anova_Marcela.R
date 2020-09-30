@@ -66,14 +66,21 @@ exercicio1= as.data.frame(exercicio_anova_1)
 
 #o ggplot esta configurado para fazer grafico x y
 #queremos um boxplot
+#exemplo tirado do site
+#http://www.sthda.com/english/wiki/ggplot2-box-plot-quick-start-guide-r-software-and-data-visualization
+#Basic box plot
+p <- ggplot(exercicio1, aes(x=estratos, y=dados)) + 
+  geom_boxplot()
+p
+#agora vc pode arrumar o resto Marcela
 # n funcionou
-ggplot(exercicio_anova_1$estratos, x = "estratos", y = "dados", 
+#ggplot(exercicio_anova_1$estratos, x = "estratos", y = "dados", 
           color = "estratos", palette = c("#999999","#00AFBB", "#E7B800", "#FC4E07"),
           order = c("Estrato 1", "Estrato 2", "Estrato 3", "Estrato 4"),
           ylab = "dados", xlab = "estratos")
 
 # n funcionou
-ggplot(exercicio_anova_1$estratos, aes(x=dose, y=len, color=estratos)) + 
+#ggplot(exercicio_anova_1$estratos, aes(x=dose, y=len, color=estratos)) + 
        scale_color_brewer(palette="Dark2") +
        order = c("Estrato 1", "Estrato 2", "Estrato 3", "Estrato 4")
 
