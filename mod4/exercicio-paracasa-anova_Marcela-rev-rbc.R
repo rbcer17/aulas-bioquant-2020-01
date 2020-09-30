@@ -60,14 +60,11 @@ library("ggplot2")
 exercicio_anova_1$estratos <- ordered(exercicio_anova_1$estratos,
                          levels = c("Estrato 1", "Estrato 2", "Estrato 3", "Estrato 4"))
 
-#data.frame(exercicio_anova_1$estratos) 
-#criamos um dataframe chamado exercicio1 para usar o ggplot
 exercicio1= as.data.frame(exercicio_anova_1)
 
-#o ggplot esta configurado para fazer grafico x y
-#queremos um boxplot
+
 # n funcionou
-ggplot(exercicio_anova_1$estratos, x = "estratos", y = "dados", 
+ggplot(exercicio1$estratos, x = "estratos", y = "dados", 
           color = "estratos", palette = c("#999999","#00AFBB", "#E7B800", "#FC4E07"),
           order = c("Estrato 1", "Estrato 2", "Estrato 3", "Estrato 4"),
           ylab = "dados", xlab = "estratos")
