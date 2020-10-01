@@ -58,11 +58,13 @@ install.packages("ggplot2")
 library("ggplot2")
 
 exercicio_anova_1$estratos <- ordered(exercicio_anova_1$estratos,
-                         levels = c("Estrato 1", "Estrato 2", "Estrato 3", "Estrato 4"))
+                        levels = c("Estrato 1", "Estrato 2", "Estrato 3", "Estrato 4"))
 
 #data.frame(exercicio_anova_1$estratos) 
 #criamos um dataframe chamado exercicio1 para usar o ggplot
 exercicio1= as.data.frame(exercicio_anova_1)
+exercicio1$estratos <- as.factor(exercicio1$estratos)
+#checar para ver se os dados foram importados no formato numerico
 
 #o ggplot esta configurado para fazer grafico x y
 #queremos um boxplot
@@ -74,7 +76,7 @@ p <- ggplot(exercicio1, aes(x=estratos, y=dados)) +
 p
 #agora vc pode arrumar o resto Marcela
 # n funcionou
-#ggplot(exercicio_anova_1$estratos, x = "estratos", y = "dados", 
+#ggplot(exercicio1, x = "estratos", y = "dados", 
           color = "estratos", palette = c("#999999","#00AFBB", "#E7B800", "#FC4E07"),
           order = c("Estrato 1", "Estrato 2", "Estrato 3", "Estrato 4"),
           ylab = "dados", xlab = "estratos")
