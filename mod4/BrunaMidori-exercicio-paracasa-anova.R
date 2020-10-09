@@ -57,7 +57,7 @@ leveneTest(exercicio_anova_1.dados~exercicio_anova_1.estratos, data=exercicio_an
 #teste ANOVA (H0:nao ha diferenca siginificativa; H1:ha diferenca significativa)
 testeanova <- aov(exercicio_anova_1.dados~exercicio_anova_1.estratos, data=exercicio_anova_1)
 summary(testeanova)
-#existe diferenca significativa entre as variancias dos estratos (p<0.05)
+#existe diferenca significativa entre as medias dos estratos (p<0.05)
 
 ## EXERCICIO 2
 
@@ -110,11 +110,11 @@ leveneTest(exercicio_anova_2$Plasma, group =,exercicio_anova_2$Tratamento, cente
 plasma<-exercicio_anova_2$Plasma
 tratamento<-exercicio_anova_2$Tratamento
 sexo<-exercicio_anova_2$Sexo
-as.character(tratamento)
-as.character(sexo)
+factor(tratamento)
+factor(sexo)
 #teste de ANOVA
 testeanova <- aov(plasma~tratamento+sexo+tratamento:sexo, data=exercicio_anova_2)
 summary(testeanova)
 #o tratamento afeta o nivel de plasma (p<0.05)
 #nao ha diferenca no nivel de plasma para machos e femeas (p>0.05)
-#nao ha diferenca entre machos e femeas na presenca e ausencia do hormonio (p>0.05)
+#nao ha interaçao entre sexo do roedor e nivel do plasma do tratamento (p>0.05)
