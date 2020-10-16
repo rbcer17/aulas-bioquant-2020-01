@@ -42,6 +42,6 @@ levene.test(crabs$FL, group= crabs$sp)
 levene.test(crabs$FL, group = crabs$sex)#DUVIDA
 #aov
 help(crabs)
-resultadocrabs <- aov(FL~ sp+sex+sp:sex, data:crabs)#erro
+resultadocrabs <- aov(FL~ sp+sex+sp:sex, data=crabs)#erro
 summary(resultadocrabs)
 # Nao esqueca de testar as premissas de normalidade e homoscedascidade
