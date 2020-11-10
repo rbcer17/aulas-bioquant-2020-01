@@ -1,0 +1,2 @@
+Usaremos um exercício adaptado do curso do Prof Patrick Bartlein da University of Oregon, disponível no github: https://pjbartlein.github.io/REarthSysSci/geospatial.html
+incluímos aqui o script dele levemente modificado e os dados utilizados
