@@ -201,10 +201,9 @@ library(RColorBrewer)
 ```
 
 ```{r ncdf4 read mtco, echo=TRUE, eval=TRUE, cache=FALSE}
-# set path and filename
-ncpath <- "/Users/bartlein/Projects/ESSD/data/nc_files/"
+# set filename
 ncname <- "cru10min30_bio.nc"  
-ncfname <- paste(ncpath, ncname, sep="")
+ncfname <- paste(ncname, sep="")
 ```
 ```{r open mtco}
 # open a netCDF file
@@ -303,7 +302,7 @@ Read the shapefile for *Picea mariana*
 # read the shape file for Picea Mariana
 shp_path <- "/Users/bartlein/Projects/ESSD/data/shp_files/USGS_pp1650/"
 shp_name <- "picemari.shp"
-shp_file <- paste(shp_path, shp_name, sep="")
+shp_file <- paste(shp_name, sep="")
 picea_shp <- readOGR(shp_file)
 ```
 
@@ -321,7 +320,7 @@ Read the na10km_v2 points as a .csv file (for illustration, in practice it would
 # read the na10km_v2 points (as a .csv file)
 csv_path <- "/Users/bartlein/Projects/ESSD/data/csv_files/"
 csv_name <- "na10km_v2.csv"
-csv_file <- paste(csv_path, csv_name, sep="")
+csv_file <- paste(csv_name, sep="")
 na10km_v2 <- read.csv(csv_file)
 str(na10km_v2)
 ```
