@@ -20,6 +20,15 @@ klippy::klippy(position = c('top', 'right'))
 # Website do projeto: 
 # https://pjbartlein.github.io/REarthSysSci/geospatial.html
 
+#Install klippy package if not available
+```{r}
+#if klippy is not installed do as follows
+install.packages("remotes")
+remotes::install_github("rlesur/klippy")
+
+```
+
+#Start the script
 ```{r child="rspatial.md"}
 ```
 
